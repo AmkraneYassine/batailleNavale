@@ -1,42 +1,39 @@
-
 import java.util.Scanner;
-
 
 public class Boat {
     static Scanner myScan = new Scanner( System.in );
 
-    Point Pt1;
-    Point Pt2;
-    int index;
+    Point pt1, pt2;
+    int id = 0;
 
     static int nbre = 5;
 
-    public Boat( Point Pt1, Point Pt2)
-    {
-        this.Pt1 = Pt1;
-        this.Pt2 = Pt2;
+    Boat( Point pt1, Point pt2, int id) {
+        this.pt1 = pt1;
+        this.pt2 = pt2;
+        this.id = id;
     }
 
     public Point getPt1()
     {
-        return Pt1;
+        return pt1;
     }
     public Point getPt2()
     {
-        return Pt2;
+        return pt2;
     }
-    public int getIndex() { return index; }
-    public void setPt1(Point Pt1)
+    public int getId() { return id; }
+    public void setPt1(Point pt1)
     {
-        this.Pt1 = Pt1;
+        this.pt1 = pt1;
     }
-    public void setPt2(Point Pt2)
+    public void setPt2(Point pt2)
     {
-        this.Pt2 = Pt2;
+        this.pt2 = pt2;
     }
-    public void setIndex(int index)
+    public void setIndex(int id)
     {
-        this.index = index;
+        this.id = id;
     }
 
     public void nbre_boat() {
