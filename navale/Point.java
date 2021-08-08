@@ -1,13 +1,11 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Point
 {
-    int x;
-    int y;
+    private int x = 0, y = 0;
 
-    public Point(int x, int y)
+    Point(int x, int y)
     {
         this.x = x;
         this.y = y;
@@ -56,6 +54,4 @@ public class Point
 
         return tempList;
     }
-
-
 }
