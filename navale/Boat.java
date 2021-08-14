@@ -1,53 +1,65 @@
-
+package be.kolu;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * Classe Boat : Présnte un objet bateau et a comme attributs :
+ *             Point pt1 : Pt qui présente la proue  du bateau
+ *             Point pt2 : Pt qui présente la poupe  du bateau
+ *             int id : qui présente l'id du bateau (index)
+ */
 
 public class Boat {
+    int id = 0;
+    List<Point> pts = new ArrayList<>();
+
     static Scanner myScan = new Scanner( System.in );
 
-    Point Pt1;
-    Point Pt2;
-    int index;
+    /**
+     * Constructeur
+     */
 
-    static int nbre = 5;
-
-    public Boat( Point Pt1, Point Pt2)
-    {
-        this.Pt1 = Pt1;
-        this.Pt2 = Pt2;
+    Boat(int id) {
+        this.id = id;
     }
 
-    public Point getPt1()
-    {
-        return Pt1;
-    }
-    public Point getPt2()
-    {
-        return Pt2;
-    }
-    public int getIndex() { return index; }
-    public void setPt1(Point Pt1)
-    {
-        this.Pt1 = Pt1;
-    }
-    public void setPt2(Point Pt2)
-    {
-        this.Pt2 = Pt2;
-    }
-    public void setIndex(int index)
-    {
-        this.index = index;
+    /**
+     * afficheBoat : permet d'afficher les infos d'une bateau
+     */
+
+    public void afficheBoat() {
+        System.out.print( "Bateau " + String.valueOf( id ) + " : " );
+        for (Point i : pts) {
+            System.out.print( i.affichePoint() + " " );
+        }
+        System.out.println( "" );
     }
 
-    public void nbre_boat() {
-        System.out.println( "Do you want to define the number of boats ?  yes/no " );
-        String ans1 = myScan.nextLine();  // ignorer le char spé
-        String ans = myScan.nextLine();
-        if (ans.equals( "yes" )) {
-            System.out.println( "Boats number : " );
-            nbre = myScan.nextInt();
-        } else if (!ans.equals( "no" )) {
-            throw new IllegalArgumentException( "C'est yes ou bien, c'est noooo?" );
+    public List<Point> getPts() {
+        return pts;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setPt1(List<Point> pts) {
+        this.pts = pts;
+    }
+
+    public void setIndex(int id) {
+        this.id = id;
+    }
+
+
+    public void deletePt(int index, Point pt) {
+
+        int i = Point.search( pts, pt );
+        if (i != -1) {
+            pts.remove( pts.get( i ) );
+            System.out.println( "Test2" );
         }
     }
 }
